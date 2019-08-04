@@ -20,7 +20,14 @@ namespace TesteBase2
             util.PopulateInCollection(filePathLogin);
             PagObj.Login_Senha_Acessar(util.ReadData(1, "Column0"), util.ReadData(1, "Column1"));
             PagObj.AcessarAccount();
-            PagObj.VerificarConta(util.ReadData(1, "Column0"), util.ReadData(1, "Column2"), util.ReadData(1, "Column3"), util.ReadData(1, "Column4"));
+            try
+            {
+                PagObj.VerificarConta(util.ReadData(1, "Column0"), util.ReadData(1, "Column2"), util.ReadData(1, "Column3"), util.ReadData(1, "Column4"));
+            }
+            catch
+            {
+                PagObj.Screenshot("ErrorVerifAccount");   
+            }
             PagObj.Screenshot("AcessarConta");   
         }
 
